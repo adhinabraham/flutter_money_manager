@@ -34,7 +34,6 @@ class CategoryDB implements CategoryDbFunction {
     final _categoryDB = await Hive.openBox<CategoryModel>(CATEGORY_DB_NAME);
     await _categoryDB.put(value.id, value);
     refreshUI();
-    print("value is added --------------->  ");
   }
 
   Future<void> refreshUI() async {
@@ -46,10 +45,8 @@ class CategoryDB implements CategoryDbFunction {
         (category) => {
               if (category.type == CategoryType.income){
                 incomeCategoryList.value.add(category),
-
               } else {
                 expenseCategoryList.value.add(category),
-
               }
             });
     incomeCategoryList.notifyListeners();
