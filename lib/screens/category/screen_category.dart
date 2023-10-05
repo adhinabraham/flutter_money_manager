@@ -16,8 +16,8 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> with SingleTickerProviderStateMixin {
 
  late TabController _tabController;
- List<CategoryModel> incomeList = List.empty(growable: true);
- List<CategoryModel> expenseList = List.empty(growable: true);
+ // List<CategoryModel> incomeList = List.empty(growable: true);
+ // List<CategoryModel> expenseList = List.empty(growable: true);
 
 
  @override

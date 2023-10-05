@@ -30,15 +30,14 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          if(selectedInexNotifer.value == 0){
-           Navigator.of(context).pushNamed(ScreenaddTransaction.routeName);
-          }else {
-            showCategoryAddPopup(context);
-            // print("add cateogory ");
-            // final sample = CategoryModel(id:DateTime.now().microsecondsSinceEpoch.toString() , name: 'travel', type: CategoryType.expense);
-            // CategoryDB().insertCategory(sample);
+          switch (selectedInexNotifer.value) {
+            case 0:
+              Navigator.of(context).pushNamed(ScreenaddTransaction.routeName);
+              break;
+            case 1:
+              showCategoryAddPopup(context);
+              break;
           }
-          print("Add something");
         },
         child: const Icon(Icons.add),
       ),
