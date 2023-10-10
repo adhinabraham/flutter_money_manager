@@ -5,6 +5,9 @@ import 'package:money_manager/models/category/category_model.dart';
 
 import '../../db/transaction/transaction_db.dart';
 import '../../models/transactions/transaction_model.dart';
+import 'package:intl/intl.dart';
+
+
 
 class ScreenaddTransaction extends StatefulWidget {
   const ScreenaddTransaction({super.key});
@@ -153,7 +156,11 @@ class _ScreenaddTransactionState extends State<ScreenaddTransaction> {
       print("where is this error getting");
       return;
     }
-   final model =   TransactionModel(amount: _amountText, purpose: _purposeText, transactionDate: _selectedDate!, transActionType: _selectedRadioValue!, selectedCategory: _selectedCategoryModel!);
-    TransactionDB.instance.addTransaction(model);
+   final model =   TransactionModel(amount: _amountText, purpose: _purposeText, transactionDate: _selectedDate!, transActionType: _selectedRadioValue, selectedCategory: _selectedCategoryModel!);
+     await TransactionDB.instance.addTransaction(model);
+     if(mounted) {
+       Navigator.of(context).pop();
+     }
+     TransactionDB.instance.refresh();
   }
 }
